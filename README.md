@@ -259,6 +259,69 @@ setTimeout(()=>{
 
 ##### PART TWO
 
+1. ## template strings - also known as template literals. Are a feature in JavaScript that allows you to create strings with embedded expressions.
+2. 
+They are denoted by backticks `` instead of single or double quotes. Template strings provide a more flexible and concise way to construct strings, especially when they involves variables or expressions.
+N/B: This temple literals enable you to write a string inside them.
+
+Example:
+ 
+const fname = 'Aweng';
+const lname = 'Atem';
+console.log(`My first name is ${fname} and my last name is ${lname}`);
+
+2. ### Arroy Functions in js - also known as fat arrow functions, are a shorter way of writing functions in JavaScript
+
+##normal function below
+
+function myFunc() {
+  console.log('Hello World');
+}
+myFunc();
+
+--in this normal function you can remove the bracket if you have one variable
+--you can also remove the curly braces together with the return keyword. You cannot remove one. You have to remove both of them or leave both of them.
+
+###an arrow function
+
+const greet = () => console.log('Hello World');
+
+greet();
+
+3. ### Enhanced object literals - area a set of enhancements to the syntax for defining objects in Javacript
+   
+Example:
+
+function user(name, age, work) {
+  return {
+    name: name,
+    age: age,
+    work: work,
+  };
+}
+
+const res = user('aweng', 33, 'Programmer');
+
+console.log(res.name);
+console.log(res.age);
+console.log(res.work);
+
+###in enhanced object property, the key and value are the same e.g name = name, age = age but you can remove one name or age and the code will still run.
+
+4. ### Default function parameters - allows you to assign default values to function parameters. When a function is called, and an argument is not provided for a parameter, the default value will be used instead.
+   
+example:
+
+function loop(count = true) {
+  if (count == true) {
+    for (i = 0; i <= 5; i++) {
+      console.log(`Count: ${i}`);
+    }
+  }
+}
+loop(true);
+
+
 
 
 
