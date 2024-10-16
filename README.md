@@ -149,10 +149,32 @@ console.log(person.greet());
 
 ### A scope
 
-A scope in JavaScript is the current context of code, which determines the accessibility of variables to JavaScript
+A scope in JavaScript is the current context of the code, which determines the accessibility of variables to JavaScript
 there are two types:
 a. Global scope variables - are those variables declared outside a block
+
+Example: 
+
+let x = 200;
+
+function myFunc() {
+
+}
+console.log(myFunc());
+
+/* x is a global variable because it can be accessed anywhere in the code */
+
+
 b. Local scope variables are those declared inside a block of code.
+
+Example:
+
+function myFunc() {
+  let x = 200;
+}
+console.log(myFunc());
+
+/* x is a local variable because it can only be accessed with the function */
 
 5. ### JSON - JavaScript Object Notation - used to transmit data btw the server and application
 6. 
