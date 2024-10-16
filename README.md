@@ -345,6 +345,391 @@ loop(true);
 
 
 
+5. ####spread operators in JavaScript - is used to make copies of an object. it uses three dot (...). It is also used to combine arrays and objects.
+
+##spread operator by using a function
+
+Example:
+
+function myFunc(a, b, c, d) {
+  console.log('a', a);
+  console.log('b', b);
+  console.log('c', c);
+  console.log('d', d);
+}
+const colors = ['red', 'green', 'blue', 'teal'];
+myFunc(...colors);
+
+##spread operator by using an array
+
+Example: 
+
+const num1 = ['one', 'two', 'three', 'four'];
+const num2 = ['five', 'six', 'seven', 'eight'];
+const newNum = [...num1, ...num2];
+console.log(newNum);
+
+##spread operator by using object
+
+Example: 
+
+const obj1 = { x: 1, y: 2 };
+const obj2 = { z: 3 };
+const obj3 = { ...obj1, ...obj2 };
+console.log(obj3);
+
+
+6. ### The rest operator syntax allows a function to accept an infinite number of arguments. It is basically used for cloning elements
+       As an array, providing a way to represent variadic functions in JavaScript. Variadic functions are functions which accept unlimited number of arguments.
+	A rest operator must be written after parameters if they are many
+
+Example: 
+
+function user(...userData) {
+  console.log(userData);
+}
+user('aweng', 'programming', 'football');
+
+7. ### Destructuring - allows us to unpack values from data structures such as arrays, objects into distinct variables.
+
+###Array destructuring - in array destructuring, the order does matter and the name doesn't matter
+
+Example: 
+
+const num = ['one', 'two', 'three', 'four']; - This is an array
+
+const [one, two, three, four] = num; - this is a destructuring syntax. the brackets are used to store elements from array
+
+console.log(one);
+console.log(two);
+console.log(three);
+console.log(four);
+
+Example2:
+
+function fn() {
+  return [1, 2, 3, 4];
+}
+let a, b, c, d;
+[a, , c, d] = fn(); - this is how to ignore the values in desructuring by proving an empty space and a comma.  This can only work in array destructuring
+console.log(a);
+console.log(b);
+console.log(c);
+console.log(d);
+
+
+###object destructuring - Here the order doesn't matter but the name does.
+
+Example: 
+
+const students = {
+  name: 'aweng',
+  id: 1717,
+  age: 33,
+};
+
+const { name, id, age } = students; - when you replace for example age with another variable name, it wont work.
+console.log(name);
+console.log(id);
+console.log(age);
+
+#renaming variables in destructuring
+
+const num = {
+  x: 100,
+  y: 200,
+};
+const { x: new1, y: new2 } = num; - this is how we will be renaming variables in object destructuring
+console.log(new1);
+console.log(new2);
+
+##object destructuring and rest operator
+
+Example:
+
+let { a, b, ...rest } = { a: 100, b: 200, c: 300, d: 400, e: 500 };
+/* console.log(a);
+console.log(b); */
+console.log(rest);
+
+##function destructuring in JavaScript
+
+Example:
+
+const person = {
+  name: 'aweng',
+  age: 33,
+  country: 'USA',
+};
+
+function fn({ name, age, country }) {
+  console.log(`${name}`);
+  console.log(`${age}`);
+  console.log(`${country}`);
+}
+fn(person);
+
+###nested destructuring - destructuring inside a destructuring 
+
+Example:
+
+
+const songs = [
+  {
+    name: 'Lucky you',
+    singer: 'Joyner',
+    duration: 4.34,
+  },
+  {
+    name: 'Just like you',
+    singer: 'NF',
+    duration: 3.23,
+  },
+  {
+    name: 'Humble Singer',
+    singer: 'Joyner',
+    duration: 2.33,
+  },
+  {
+    name: 'Old town Road',
+    singer: 'Kendrick Lamar',
+    duration: 1.43,
+  },
+  {
+    name: 'Cold Sholder',
+    singer: 'Central Cee',
+    duration: 5.23,
+  },
+];
+
+const [, , , , { singer }] = songs; -- we use commas to ignore people. like comma one will ignore Joyner, two Nf and so on to get at the singer you want
+console.log(singer);
+
+
+8. ### Ternary operator in JavaScript - is a shorter way of writing conditional expressions. 
+
+syntax:
+
+// condition ? exprIfTrue : exrIfFalse - It doesn't have else if statement. it is only if and else statement
+
+Example: 
+
+let x = 10;
+
+x < 9 ? console.log('Hello') : console.log('Hi');
+
+9. #### For...in loop in JavaScript - is used to iterate over the enumerable properties of an object. It is a way to loop through the keys (property name) of an object.
+
+syntax: 
+
+for (variable in iterable){.....}
+
+Example:
+
+##iterating over an object
+
+const person = {
+  name: 'aweng',
+  age: 33,
+  gender: 'male',
+};
+
+for (let keys in person) {
+  console.log(keys, person[keys]); -- person[keys] is used to print out the values
+}
+
+
+##iterating over an array
+
+Example1: 
+
+let list = ['one', 'two', 'three', 'four'];
+
+for (let index in list) {
+  console.log(list[index]);
+}
+
+Example2:
+
+const object = {
+  a: 1,
+  b: 2,
+  c: 3,
+};
+for (let index in object) {
+  console.log(`${index}: ${object[index]}`); -- this print out the index and the values
+}
+
+
+
+### for...of loop - is a modern iteration statement that provides a concise and easy way to loop over elements in iterable objects like arrays, strings, maps, sets, and more, it allows you to iterate directly over the values of the elements, rather than dealing with their indices or keys, which makes the code more readable and less error-prone.
+
+syntax:
+
+for(variable of iterable){...}
+
+Example:
+
+const peoples = ['aweng', 'peter', 'andrew', 'john'];
+
+for (let people of peoples) {
+  console.log(people);
+}
+
+######################## Helpers
+
+10. ###{foreach} For Each Helper - when we call the foreach helper we pass in anonymous callback function, this function gets called one time for every element in the array.
+
+Example:
+
+const colors = ['teal', 'blue', 'red', 'green'];
+
+colors.forEach(function update(color) {
+  console.log(color);
+});
+
+---example with arrow function
+
+const colors = ['teal', 'blue', 'red', 'green'];
+
+colors.forEach((color) => console.log(color));
+
+11. ### {MAP()}Map Helper -- Map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
+
+Example: 
+
+let numbers = [1, 2, 3, 4, 5];
+
+let double = numbers.map((num) => num * 2);
+
+console.log(double);
+ 
+
+---the difference between map and foreach is that map creates entirely a new and modified array while foreach just modified the previous array and doesn't create a new array.
+
+Example2:
+
+const numbers = [65, 44, 12, 4];
+
+function myFunc(num) {
+  return num * 10;
+}
+
+const res = numbers.map(myFunc);
+
+console.log(res);
+
+12. #### filter() - is a built-in array method in JavaScript that allows you to create a new array containing elements that pass a certain condition. it provides a clean and concise way to filter out elements from an array on a specified criteria.
+
+Exampe:
+
+const songs = [
+  { name: 'Lucky You', duration: 4.43 },
+  { name: 'Just like you', duration: 3.43 },
+  { name: 'The Search', duration: 2.43 },
+  { name: 'The Box', duration: 1.43 },
+];
+
+console.log(songs.filter((song) => song.duration < 3)); --- it filter out stuffs based on the condition given in the arrow function
+
+Example: 2
+
+const computers = [
+  { ram: 4, hdd: 100 },
+  { ram: 8, hdd: 200 },
+  { ram: 16, hdd: 300 },
+  { ram: 32, hdd: 400 },
+];
+
+console.log(computers.filter((computer) => computer.ram > 16));
+
+Example3: 
+
+const ages = [32, 33, 16, 40];
+
+function checkAge(age) {
+  return age >= 18;
+}
+console.log(ages.filter(checkAge));
+
+Exanple: 4
+
+const words = [
+  'spray',
+  'limit',
+  'elite',
+  'exuberant',
+  'destruction',
+  'present',
+];
+
+console.log(words.filter((word) => word.length >= 6));
+
+
+13. #### Find() Method - is another built-in array helper in JavaScript that allows us to find the first element in an array that matches a specific condition. it returns the value of the first element that satisfies the given testing functions, or undefined if no element is found.
+
+Example:
+
+const peoples = [
+  { name: 'aweng', age: 33 },
+  { name: 'john', age: 34 },
+  { name: 'peter', age: 67 },
+  { name: 'james', age: 32 },
+  { name: 'andrew', age: 45 },
+];
+console.log(peoples.find((people) => people.name == 'aweng'));
+
+
+### every() method - tests whether all elements in the array pass the condition specified by the provided callback function....
+
+Example: 
+
+const peoples = ['huxn', 'jordan', 'alex'];
+
+console.log(peoples.every((people) => people.length == 4)); the result is 4 because not the length of every element in the array is 4
+
+
+### some() method - tests whether at least one element in the array passes the condition specified by the provided callback function. It returns true if the callback function returns true for at least one element, and false if no element passes the condition.
+
+Example:
+
+console.log(peoples.some((people) => people.length == 4)); - the result is true because the length of some elements in the array is equal to 4
+
+
+## reduce() method - applies the reducer function to each element of an array, accumulating the results into a single value. It is often used to perform calculations or aggregation on array elements  and simplify the array into a single value.
+
+
+Example:
+
+const numbers = [1, 2, 3, 4, 5];
+
+const sum = numbers.reduce((p, c) => {  -- the p is the previous value of the array and the c is the current value of the array
+  return p + c;
+}, 0);
+console.log(sum);
+
+
+14. #### Map - is a built-in data structure that allows you to store key-values pairs where both the keys and values can be of any data type. It is similar to an object, but with a few key differences.
+
+keys can be of any data type: unlike objects, where keys are limited to strings and symbols, Map allows you to use any data type as keys, including numbers, Booleans, objects, and even other Map instances.
+
+Example: 
+
+const map = new Map();
+
+const keyOne = 'Huxn';  ---- these are keys declared
+const keyTwo = {};
+const keyThree = function () {};
+
+map.set(keyOne, 'Value of Key One'); --- this is how to add keys
+map.set(keyTwo, 'Value of Key One');
+map.set(keyThree, 'Value of Key One');
+
+console.log(map);
+
+
+
+
 
 
 
